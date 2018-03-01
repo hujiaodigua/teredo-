@@ -15,12 +15,12 @@ exit
 
 
 :begin
-Echo. ÇëÑ¡ÔñĞèÒªµÄ²Ù×÷
+Echo. è¯·é€‰æ‹©éœ€è¦çš„æ“ä½œ
 Echo     1 netsh int ipv6 show teredo
-Echo     2 ×Ô¶¯Ñ¡Ôñ²¢ÉèÖÃteredo·şÎñÆ÷
-Echo     3 ÊÖ¶¯Ñ¡Ôñ²¢ÉèÖÃteredo·şÎñÆ÷
+Echo     2 è‡ªåŠ¨é€‰æ‹©å¹¶è®¾ç½®teredoæœåŠ¡å™¨
+Echo     3 æ‰‹åŠ¨é€‰æ‹©å¹¶è®¾ç½®teredoæœåŠ¡å™¨
 Echo     4 exit
-Set /P Choice= ¡¡¡¡¡¡¡¡¡¡ÇëÑ¡ÔñÒª½øĞĞµÄ²Ù×÷Êı×Ö £¬È»ºó°´»Ø³µ£º
+Set /P Choice= ã€€ã€€ã€€ã€€ã€€è¯·é€‰æ‹©è¦è¿›è¡Œçš„æ“ä½œæ•°å­— ï¼Œç„¶åæŒ‰å›è½¦ï¼š
 If not "%Choice%"=="" (
   If "%Choice%"=="4" goto exit
   If "%Choice%"=="1" goto one
@@ -36,7 +36,7 @@ goto begin
 goto begin
 
 :begin2
-Echo. ÇëÑ¡ÔñĞèÒªµÄ²Ù×÷
+Echo. è¯·é€‰æ‹©éœ€è¦çš„æ“ä½œ
 echo     1 	teredo.remlab.net
 echo     2 	teredo2.remlab.net
 echo     3 	teredo-debian.remlab.net
@@ -48,10 +48,16 @@ echo     8 	teredo.ipv6.microsoft.com
 echo     9 	win10.ipv6.microsoft.com
 echo     10	teredo.iks-jena.de',
 echo     11	win1710.ipv6.microsoft.com
-echo     0 	·µ»Ø
-Set /P Choice= ¡¡¡¡¡¡¡¡¡¡ÇëÑ¡ÔñÒª½øĞĞµÄ²Ù×÷Êı×Ö £¬È»ºó°´»Ø³µ£º
+echo     12 debian-miredo.progsoc.org
+echo     13 teredo.ginzado.ne.jp
+echo     14 teredo.iks-jena.de
+echo     0 	è¿”å›
+Set /P Choice= ã€€ã€€ã€€ã€€ã€€è¯·é€‰æ‹©è¦è¿›è¡Œçš„æ“ä½œæ•°å­— ï¼Œç„¶åæŒ‰å›è½¦ï¼š
 If not "%Choice%"=="" (
 	If "%Choice%"=="0" goto begin
+	If "%Choice%"=="14" goto two14
+	If "%Choice%"=="13" goto two13
+	If "%Choice%"=="12" goto two12
 	If "%Choice%"=="11" goto two11
 	If "%Choice%"=="10" goto two10
 	If "%Choice%"=="9" goto two9
@@ -94,8 +100,18 @@ netsh interface teredo set state server=win10.ipv6.microsoft.com
 goto begin
 :two10
 netsh interface teredo set state server=teredo.iks-jena.degoto begin
+goto begin
 :two11
 netsh interface teredo set state server=win1710.ipv6.microsoft.com
+goto begin
+:two12
+netsh interface teredo set state server=debian-miredo.progsoc.org
+goto begin
+:two13
+netsh interface teredo set state server=teredo.ginzado.ne.jp
+goto begin
+:two14
+netsh interface teredo set state server=teredo.iks-jena.de
 goto begin
 
 
