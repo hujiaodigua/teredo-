@@ -39,7 +39,10 @@ if __name__ == "__main__":
     'teredo.ipv6.microsoft.com',
     'win10.ipv6.microsoft.com' ,
     'teredo.iks-jena.de',
-    'win1710.ipv6.microsoft.com']
+    'win1710.ipv6.microsoft.com',
+	'debian-miredo.progsoc.org',
+	'teredo.ginzado.ne.jp',
+	'teredo.iks-jena.de']
     port = 3544
     okiplist =[]
     b =   {}
